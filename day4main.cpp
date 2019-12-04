@@ -15,6 +15,7 @@ using namespace std;
 int main(){
     ifstream inReader("input.txt");
     int count = 0;
+    
     for(int i = 193651; i<649729; i++){
         bool repeat = false;
         bool valid = true;
