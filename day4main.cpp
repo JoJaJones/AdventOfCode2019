@@ -19,16 +19,23 @@ int main(){
         bool repeat = false;
         bool valid = true;
         string str = to_string(i);
+        char temp = ' ';
         for(int j = 0; j <str.length()-1 && valid;j++){
-            if(str[j] == str[j+1]){
-                repeat = true;
-
+            if(str[j] == str[j+1] && !repeat){
+                if(j <=3 && str[j+2] != str[j] && str[j] != temp){
+                    repeat = true;
+                } else if(j == 4 && str[j] != temp){
+                    repeat = true;
+                } else {
+                    temp = str[j];
+                }
             } else if(str[j] > str[j+1]){
                 valid = false;
             }
         }
         if(valid && repeat){
             count++;
+            cout<<i<<endl;
         }
     }
     cout<<count<<endl;
