@@ -32,6 +32,11 @@ public:
     void setModes();
     void performOp(int input);
     void clearOpData();
+    int mul();
+    int sum();
+    int compare(int a, int b);
+    void jump(bool jump);
+
 };
 
 

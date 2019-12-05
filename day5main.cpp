@@ -126,7 +126,7 @@ int main() {
             case 2: array[op[2]] = mul(op[0], op[1]);
                 curIndex+=4;
                 break;
-            case 3: array[op[2]] = 5;
+            case 3: array[op[2]] = 1;
                 curIndex+=2;
                 break;
             case 4: cout<<"OUTPUT: "<<op[2]<<endl;
