@@ -147,6 +147,7 @@ int main() {
             default:
                 cout<<"Something went wrong!!!"<<endl;
         }
+        cout<<array[curIndex]<<" "<<curIndex<<endl;
         setCurrentOp(array[curIndex], currentOp, opMode[0], opMode[1], opMode[2]);
     }
 
