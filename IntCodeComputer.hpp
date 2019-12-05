@@ -27,7 +27,6 @@ private:
 
 public:
     IntCodeComputer(string data);
-    int getInput(string prompt);
     int run();
     int setOperation();
 };

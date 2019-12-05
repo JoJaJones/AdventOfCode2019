@@ -17,18 +17,10 @@ IntCodeComputer::IntCodeComputer(string data) : curOp(&memory, &curAddress) {
 }
 
 int IntCodeComputer::run() {
-    input = getInput("Enter the input value: ");
     while(memory[curAddress] != 99) {
         setOperation();
         curOp.performOp(input);
     }
-}
-
-int IntCodeComputer::getInput(string prompt) {
-    string result;
-    cout<<prompt;
-    getline(cin, result);
-    return stoi(result);
 }
 
 int IntCodeComputer::setOperation() {

@@ -9,10 +9,13 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 
+using std::string;
 using std::cout;
 using std::endl;
 using std::vector;
+using std::cin;
 
 enum ParamMode {POSITION, IMMEDIATE};
 
@@ -32,8 +35,9 @@ public:
     void setModes();
     void performOp(int input);
     void clearOpData();
-    int mul();
-    int sum();
+    int getInput(string prompt);
+    int mul(int a, int b);
+    int sum(int a, int b);
     int compare(int a, int b);
     void jump(bool jump);
 

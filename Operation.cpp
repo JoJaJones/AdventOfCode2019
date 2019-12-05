@@ -6,12 +6,19 @@
 
 #include "Operation.hpp"
 
-int Operation::sum(){
-    return params[0]+params[1];
+int Operation::getInput(string prompt) {
+    string result;
+    cout<<prompt;
+    getline(cin, result);
+    return stoi(result);
 }
 
-int Operation::mul(){
-    return params[0]*params[1];
+int Operation::sum(int a, int b){
+    return a+b;
+}
+
+int Operation::mul(int a, int b){
+    return a*b;
 }
 
 int Operation::compare(int a, int b){
@@ -102,27 +109,35 @@ void Operation::setParams() {
 void Operation::performOp(int input) {
     switch (curOpCode){
         //addition
-        case 1: memory[0][dest] = sum();
+        case 1: memory[0][dest] = sum(params[0], params[1]);;
             break;
-            //multiplication
-        case 2: memory[0][dest] = mul();
+        //multiplication
+        case 2: memory[0][dest] = mul(params[0], params[1]);;
             break;
-        case 3: memory[0][dest] = input;
+        //input
+        case 3: memory[0][dest] = getInput("Enter the input value: ");;
             break;
+        //output
         case 4: cout<<"OUTPUT: "<<dest<<endl;
             break;
+        //jump not equal 0
         case 5:
             jump(compare(params[0], 0));//jnz
             break;
+        //jump equals 0
         case 6:
             jump(!compare(params[0], 0));//jz
             break;
-        case 7:memory[0][dest] = compare(params[0], params[1]) == -1;//jl
+        //set LT flag
+        case 7:memory[0][dest] = compare(params[0], params[1]) == -1;//LT
             break;
-        case 8:memory[0][dest] = compare(params[0], params[1]) == 0;//jg
+        //set EQ flag
+        case 8:memory[0][dest] = compare(params[0], params[1]) == 0;//EQ
             break;
         default:
             cout<<"Something went wrong!!!"<<endl;
+            numParams = 0;
+            memory[0][*index] = 99;
     }
     *index+=numParams;
     clearOpData();
